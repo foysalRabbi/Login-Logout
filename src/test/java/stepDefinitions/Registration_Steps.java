@@ -1,40 +1,25 @@
 package stepDefinitions;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 
-public class Registration_Steps {
-    private WebDriver driver;
+import static driver.DriverFactory.getDriver;
 
-    @Before
-    public void setup() {
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/java/drivers/chromedriver.exe");
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver = new ChromeDriver(chromeOptions);
-        driver.manage().window().maximize();
-    }
+public class Registration_Steps{
+    private WebDriver driver = getDriver();
 
-    @After
-    public void tearDown() {
-        driver.quit();
-    }
     @Given("A user must be able to visit the registration url")
     public void a_user_must_be_able_to_visit_the_registration_url() {
         driver.get("https://www.webdriveruniversity.com/Contact-Us/contactus.html");
     }
 
-    @And("A user enter a unique first name")
+    @When("A user enter a unique first name")
     public void a_user_enter_a_unique_first_name() {
         driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys("Rehan");
     }

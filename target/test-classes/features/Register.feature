@@ -1,3 +1,4 @@
+@contact-us
 Feature: Check registration functionality.
 
   Scenario: Verify that a user is able to register successfully when take input in all fields.
