@@ -8,15 +8,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import pageObjects.Base_PO;
 
 import static driver.DriverFactory.getDriver;
 
-public class Registration_Steps{
+public class Registration_Steps extends Base_PO {
     private WebDriver driver = getDriver();
 
     @Given("A user must be able to visit the registration url")
     public void a_user_must_be_able_to_visit_the_registration_url() {
-        driver.get("https://www.webdriveruniversity.com/Contact-Us/contactus.html");
+        //driver.get("https://www.webdriveruniversity.com/Contact-Us/contactus.html");
+        navigateTo_URL("https://www.webdriveruniversity.com/Contact-Us/contactus.html");
     }
 
     @When("A user enter a unique first name")
